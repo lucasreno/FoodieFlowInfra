@@ -39,7 +39,7 @@ jobs:
       - name: Authenticate GCP
         uses: google-github-actions/auth@v2.1.2
         with:
-          credentials: ${{ secrets.GCP_CREDENTIALS }}
+          credentials_json: ${{ secrets.GCP_CREDENTIALS }}
 
       - name: Show GCP credentials
         run: |
