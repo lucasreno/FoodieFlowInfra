@@ -8,7 +8,7 @@ resource "google_firestore_database" "firestore" {
 resource "google_firestore_index" "firestore" {
   project = var.project_id
   database = google_firestore_database.firestore.name
-  collection_group = "order"
+  collection = "order"
   fields {
     field_path = "order_id"
     order = "ASCENDING"
