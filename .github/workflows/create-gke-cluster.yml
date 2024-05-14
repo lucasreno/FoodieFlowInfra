@@ -1,0 +1,53 @@
+name: Terraform GKE Workflow
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'terraform/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'terraform/**'
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./terraform
+
+    env:
+      GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
+      PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
+      REGION: ${{ secrets.GCP_REGION }}
+      CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Configure GCP credentials
+        uses: google-github-actions/setup-gcloud@v2.1.0
+
+      - name: Authenticate GCP
+        uses: google-github-actions/auth@v2.1.2
+        with:
+          credentials: ${{ secrets.GCP_CREDENTIALS }}
+
+      - name: Show GCP credentials
+        run: |
+          echo "GOOGLE_APPLICATION_CREDENTIALS: $GOOGLE_APPLICATION_CREDENTIALS"
+          gcloud auth list
+
+      - name: Terraform Init
+        run: terraform init terraform
+
+      - name: Terraform Apply
+        run: terraform apply -auto-approve terraform
