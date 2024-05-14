@@ -15,6 +15,8 @@ Recursos utilizados:
 - Google Pub/Sub
 
 ## Funcionamento
+![infra](https://github.com/lucasreno/FoodieFlowInfra/assets/62509668/8da04a24-e4ee-488f-af13-75d02eb9b916)
+
 
 ## Pré-requisitos
 - Conta no Google Cloud Platform
