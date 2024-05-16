@@ -16,7 +16,7 @@ resource "google_pubsub_schema" "pubsub" {
 EOF
 }
 
-resource "google_pubsub_topic" "pubsub" {
+resource "google_pubsub_topic" "pubsub-topic" {
   project = var.project_id
   name = var.ps_topic
   schema_settings {
