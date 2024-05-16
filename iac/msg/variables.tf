@@ -8,7 +8,7 @@ variable "environment" {
 # From terraform
 variable "ps_name" {
   description = "The name of the Pub/Sub"
-  default     = "main-ps-ff"
+  default     = "ps-ff"
 }
 variable "ps_topic" {
   description = "The name of the Pub/Sub topic"
