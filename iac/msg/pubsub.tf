@@ -16,19 +16,11 @@ resource "google_pubsub_schema" "pubsub" {
 EOF
 }
 
-output "pubsub_schema" {
-  value = google_pubsub_schema.pubsub.name
-}
-
 resource "google_pubsub_topic" "pubsub" {
   name = var.ps_topic
   depends_on = [google_pubsub_schema.pubsub]  
   schema_settings {
-    schema = google_pubsub_schema.pubsub.name
+    schema = "projects/${var.project_id}/schemas/${google_pubsub_schema.pubsub.name}"
     encoding = var.ps_encoding
   }
-}
-
-output "pubsub_topic" {
-  value = google_pubsub_topic.pubsub.name
 }
