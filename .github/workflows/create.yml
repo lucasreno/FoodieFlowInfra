@@ -1,4 +1,4 @@
-name: Terraform GKE Workflow 
+name: Terraform Create Workflow 
 
 on:
   push:

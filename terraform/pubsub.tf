@@ -21,5 +21,6 @@ resource "google_pubsub_topic" "pubsub" {
   name = "order-topic-ff"
   schema_settings {
     schema = google_pubsub_schema.pubsub.name
+    encoding = "JSON"
   }
 }
