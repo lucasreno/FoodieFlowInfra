@@ -32,7 +32,6 @@ jobs:
 
       - name: Print environment variables
         run: |
-          echo "project_id: $TF_VAR_project_id"
           echo "environment: $TF_VAR_environment"
 
       - name: Setup Terraform
