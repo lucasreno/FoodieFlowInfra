@@ -15,7 +15,7 @@ Recursos utilizados:
 - Google Pub/Sub
 
 ## Funcionamento
-![infra](https://github.com/lucasreno/FoodieFlowInfra/assets/62509668/8da04a24-e4ee-488f-af13-75d02eb9b916)
+![infra](https://github.com/lucasreno/FoodieFlowInfra/assets/62509668/7c38cada-664a-4c45-a5c0-d3b0f7cdce47)
 
 
 ## Pré-requisitos
