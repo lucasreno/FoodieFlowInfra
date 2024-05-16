@@ -22,7 +22,6 @@ output "pubsub_schema" {
 
 resource "google_pubsub_topic" "pubsub" {
   project = var.project_id
-  collection = "topics"
   name = var.ps_topic
   schema_settings {
     schema = google_pubsub_schema.pubsub.name
