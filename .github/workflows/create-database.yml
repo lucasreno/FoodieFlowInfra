@@ -29,15 +29,15 @@ jobs:
       TF_VAR_pg_password: ${{ secrets.DB_PASSWORD }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      
       - name: Print environment variables
         run: |
           echo "project_id: $TF_VAR_project_id"
           echo "environment: $TF_VAR_environment"
           echo "pg_password: $TF_VAR_pg_password"
           echo "region: $TF_VAR_region"
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1

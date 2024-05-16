@@ -27,13 +27,13 @@ jobs:
       TF_VAR_environment: ${{ vars.ENVIRONMENT }}
 
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Print environment variables
         run: |
           echo "project_id: $TF_VAR_project_id"
           echo "environment: $TF_VAR_environment"
-
-      - name: Checkout repository
-        uses: actions/checkout@v2
 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
