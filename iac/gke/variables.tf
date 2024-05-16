@@ -1,18 +1,17 @@
+# From github actions
 variable "project_id" {
   description = "The project ID to host the cluster in"
-  default     = "foodieflow"
-}
-variable "cluster_name" {
-  description = "The name for the GKE cluster"
-  default     = "ff-cluster"
-}
-variable "env_name" {
-  description = "The environment for the GKE cluster"
-  default     = "prod"
 }
 variable "region" {
   description = "The region to host the cluster in"
-  default     = "us-west1"
+}
+variable "environment" {
+  description = "The environment for ambient"
+}
+# From terraform
+variable "cluster_name" {
+  description = "The name for the GKE cluster"
+  default     = "ff-cluster"
 }
 variable "kubernetes_version" {
   description = "The Kubernetes version of the masters"

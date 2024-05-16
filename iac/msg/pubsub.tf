@@ -1,6 +1,6 @@
 resource "google_pubsub_schema" "pubsub" {
   project = var.project_id
-  name = "main-ps-ff"
+  name = "${var.ps_name}-${var.environment}"
   type = "AVRO"
   definition = <<EOF
 {
@@ -18,9 +18,9 @@ EOF
 
 resource "google_pubsub_topic" "pubsub" {
   project = var.project_id
-  name = "order-topic-ff"
+  name = var.ps_topic
   schema_settings {
     schema = google_pubsub_schema.pubsub.name
-    encoding = "JSON"
+    encoding = var.ps_encoding
   }
 }

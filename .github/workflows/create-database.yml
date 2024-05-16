@@ -1,6 +1,16 @@
-name: Terraform Destroy Workflow
+name: Terraform Create Database Workflow
 
 on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'iac/db/**'
+  pull_request:
+    branches:
+      - master
+    paths:
+      - 'iac/db/**'
   workflow_dispatch:
 
 jobs:
@@ -9,15 +19,23 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: ./terraform
+        working-directory: ./iac/db
 
     env:
       GOOGLE_APPLICATION_CREDENTIALS: ${{ secrets.GCP_CREDENTIALS }}
-      PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
-      REGION: ${{ secrets.GCP_REGION }}
-      CLUSTER_NAME: ${{ secrets.GCP_CLUSTER_NAME }}
+      TF_VAR_project_id: ${{ secrets.GCP_PROJECT_ID }}
+      TF_VAR_region: ${{ secrets.GCP_REGION }}
+      TF_VAR_environment: ${{ vars.ENVIRONMENT }}
+      TF_VAR_pg_password: ${{ secrets.DB_PASSWORD }}
 
     steps:
+      - name: Print environment variables
+        run: |
+          echo "project_id: $TF_VAR_project_id"
+          echo "environment: $TF_VAR_environment"
+          echo "pg_password: $TF_VAR_pg_password"
+          echo "region: $TF_VAR_region"
+
       - name: Checkout repository
         uses: actions/checkout@v2
 
@@ -40,5 +58,5 @@ jobs:
       - name: Terraform Init
         run: terraform init
 
-      - name: Terraform Destroy
-        run: terraform destroy -auto-approve
+      - name: Terraform Apply
+        run: terraform apply -auto-approve

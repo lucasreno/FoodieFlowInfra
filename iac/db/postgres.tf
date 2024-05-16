@@ -1,28 +1,28 @@
 resource "google_sql_database_instance"  "postgres" {
-  name             = "main-db-ff"
-  database_version = "POSTGRES_15"
-  region           = "us-central1"
+  name             = "${var.pg_instance_name}-${var.environment}"
+  database_version = var.pg_version
+  region           = var.region
 
   settings {
-    tier = "db-f1-micro"
+    tier = var.pg_tier
   }
 }
 
 resource "google_sql_user" "postgres" {
-  name     = "postgres"
+  name     = var.pg_user
   instance = google_sql_database_instance.postgres.name
-  password = "postgres"
+  password = var.pg_password
 }
 
 resource "google_sql_database" "db-order" {
-  name     = "order"
+  name     = var.pg_db_order
   instance = google_sql_database_instance.postgres.name
   charset  = "UTF8"
   collation = "en_US.UTF8"
 }
 
 resource "google_sql_database" "db-pay" {
-  name     = "pay"
+  name     = var.pg_db_pay
   instance = google_sql_database_instance.postgres.name
   charset  = "UTF8"
   collation = "en_US.UTF8"

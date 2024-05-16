@@ -1,14 +1,14 @@
 resource "google_firestore_database" "firestore" {
   project                           = var.project_id
-  name                              = "main-fs-ff"
-  location_id                       = "nam5"
+  name                              = "${var.fs_db_name}-${var.environment}"
+  location_id                       = var.fs_location
   type                              = "FIRESTORE_NATIVE"
 }
 
 resource "google_firestore_index" "firestore" {
   project = var.project_id
   database = google_firestore_database.firestore.name
-  collection = "order"
+  collection = var.fs_collection
   fields {
     field_path = "order_id"
     order = "ASCENDING"
