@@ -21,7 +21,6 @@ output "pubsub_schema" {
 }
 
 resource "google_pubsub_topic" "pubsub" {
-  project = var.project_id
   name = var.ps_topic
   depends_on = [google_pubsub_schema.pubsub]  
   schema_settings {
