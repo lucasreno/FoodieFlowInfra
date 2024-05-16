@@ -15,7 +15,7 @@ variable "cluster_name" {
 }
 variable "kubernetes_version" {
   description = "The Kubernetes version of the masters"
-  default     = "1.28.3-gke.1286000"
+  default     = "1.29.1-gke.1589020"
 }
 variable "network" {
   description = "The VPC network created to host the cluster in"
