@@ -37,10 +37,13 @@ Recursos utilizados:
 - Vá para a aba de configurações
 - Vá para a aba de secrets
 - Adicione as seguintes variáveis:
-    - `GCP_PROJECT_ID`: ID do projeto no GCP
-    - `GCP_CREDENTIALS`: Conteúdo do arquivo json criado no passo 1
-    - `GCP_REGION`: Região onde os recursos serão criados
-    - `GCP_CLUSTER_NAME`: Nome do cluster kubernetes
+    - Secrets:
+        - `GCP_CREDENTIALS`: Conteúdo do arquivo json criado no 1º passo
+        - `GCP_PROJECT_ID`: ID do projeto no GCP
+        - `GCP_REGION`: Região onde os recursos serão criados
+        - `DB_PASSWORD`: Senha banco de dados
+    - Variables:
+        - `ENVIRONMENT`: Variável que define ambiente (prod/qa)
 
 ### 3. Execute o workflow no Github Actions
 - Acesse a aba de Actions
