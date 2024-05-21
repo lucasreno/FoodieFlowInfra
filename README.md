@@ -6,10 +6,11 @@ Projeto desenvolvido para entrega do Tech Challenge da Pos Tech - Software Archi
 - Lucas Renó - RM 351351
 
 ## Visão Geral
-O Foodie Flow é uma aplicação que tem como objetivo ajudar os usuários a descobrir novos restaurantes e pratos. A aplicação é composta por 3 microserviços:
+A aplicação é composta por três microserviços que, juntos, formam o Foodie Flow. Além disso, foi criado um projeto específico para gerenciar a infraestrutura.
 - [Foodie Flow Order](https://github.com/lucasreno/FoodieFlowOrder): Responsável por gerenciar os pedidos dos usuários
 - [Foodie Flow KDS](https://github.com/lucasreno/FoodieFlowKDS): Responsável por disponibilizar os pedidos para a cozinha
 - [Foodie Flow Pay](https://github.com/lucasreno/FoodieFlowPay): Responsável por gerenciar os pagamentos dos pedidos
+- [Foodie Flow Infra](https://github.com/lucasreno/FoodieFlowInfra): Infraestrutura para os microserviços
 
 ## Vídeo de Apresentação
 [![Vídeo de Apresentação](https://img.youtube.com/vi/1Q6Q1Q1Q1Q1Q/0.jpg)](https://www.youtube.com/watch?v=1Q6Q1Q1Q1Q1Q)
