@@ -7,8 +7,7 @@ resource "google_sql_database_instance"  "postgres" {
     tier = var.pg_tier
 
     ip_configuration {
-      ipv4_enabled    = true
-      require_ssl     = true
+      ipv4_enabled = true
       authorized_networks {
         name  = "all-ips"
         value = "0.0.0.0/0"
