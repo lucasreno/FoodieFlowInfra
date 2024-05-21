@@ -70,6 +70,7 @@ module "gke" {
       min_count                 = 1
       max_count                 = 2
       disk_size_gb              = 30
+      service_account           = "deploy@foodieflow.iam.gserviceaccount.com"
     },
   ]
 }
