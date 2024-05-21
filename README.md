@@ -2,13 +2,27 @@
 
 Projeto desenvolvido para entrega do Tech Challenge da Pos Tech - Software Architecture (Fase 4).
 
+## Grupo 102
+- Lucas Renó - RM 351351
+
+## Visão Geral
+O Foodie Flow é uma aplicação que tem como objetivo ajudar os usuários a descobrir novos restaurantes e pratos. A aplicação é composta por 3 microserviços:
+- [Foodie Flow Order](https://github.com/lucasreno/FoodieFlowOrder): Responsável por gerenciar os pedidos dos usuários
+- [Foodie Flow KDS](https://github.com/lucasreno/FoodieFlowKDS): Responsável por disponibilizar os pedidos para a cozinha
+- [Foodie Flow Pay](https://github.com/lucasreno/FoodieFlowPay): Responsável por gerenciar os pagamentos dos pedidos
+
+## Vídeo de Apresentação
+[![Vídeo de Apresentação](https://img.youtube.com/vi/1Q6Q1Q1Q1Q1Q/0.jpg)](https://www.youtube.com/watch?v=1Q6Q1Q1Q1Q1Q)
+
 ## Objetivo
 
-O objetivo deste projeto é criar uma infraestrutura para a aplicação Foodie Flow usando Google Cloud Platform. 
-Stack utilizada:
+Este projeto visa criar uma infraestrutura para os microserviços da aplicação Foodie Flow utilizando Google Cloud Platform.
+
+#### Stack utilizada:
 - Terraform
 - Github Actions
-Recursos utilizados:
+
+#### Recursos utilizados:
 - Google Kubernetes Engine
 - Google Cloud SQL
 - Google Firestore
@@ -47,4 +61,7 @@ Recursos utilizados:
 
 ### 3. Execute o workflow no Github Actions
 - Acesse a aba de Actions
-- Execute o workflow "Terraform GKE Workflow"
+- Execute o workflow desejado
+    - `create-cluster-gke`: Cria um cluster no GKE (Google Kubernetes Engine)
+    - `create-database`: Cria as instâncias do Cloud SQL e Firestore, além de criar o banco de dados
+    - `create-pubsub`: Cria um schema e um tópico no Pub/Sub
